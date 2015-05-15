@@ -9,5 +9,4 @@ if [ "$#" -ne 1 ]; then
    exit
 fi
 
-
-head -c $1 /dev/urandom | tr -cd "A-Za-z0-9@#\!\$%^&*()_+=-~;,.<>/[]{}|?:✈'\\\`" && echo
+head -c $1 /dev/urandom | tr -cd "A-Za-z0-9@#\!\$%^&*()_+=-~;,.<>/[]{}|?:'\\\`" && echo
