@@ -21,3 +21,4 @@ openssl aes-256-cbc -d -in $1 -out $2 -a
 # $1 is argument one/file to decrypt
 # -out is the output file
 # $2 is argument 2/file to output decrypted content to
+
