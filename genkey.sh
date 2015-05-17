@@ -9,4 +9,10 @@ if [ "$#" -ne 1 ]; then
    exit
 fi
 
-head -c $1 /dev/urandom | tr -cd "A-Za-z0-9@#\!\$%^&*()_+=-~;,.<>/[]{}|?:'\\\`" && echo
+entropy=$(cat /proc/sys/kernel/random/entropy_avail)
+
+if [ $entropy -lt $1 ]; then
+   echo "Entropy is lower than bytesize..."
+else
+   head -c $1 /dev/urandom | tr -cd "A-Za-z0-9@#\!\$%^&*()_+=-~;,.<>/[]{}|?:'\\\`" && echo
+fi
